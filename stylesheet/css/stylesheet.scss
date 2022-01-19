@@ -115,6 +115,83 @@ body {
     font-size: $font_size_1;
   }
 }
+.toonland {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1em;
+  place-items: center;
+  img {
+    width: 80%;
+    // border: 1px solid #000;
+  }
+  h1 {
+    grid-column: 1/-1;
+    font-size: $font_size_4;
+    color: $black-color;
+    font-family: $font_family_1;
+    font-weight: 300;
+    text-align: center;
+  }
+  p {
+    grid-column: 1/-1;
+    font-size: $font_size_3;
+    color: $black-color;
+    font-family: $font_family_1;
+    font-weight: 300;
+    text-align: center;
+  }
+  // img {
+  //   width: 10em;
+  // }
+}
+.containerr {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.sample {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto 2em;
+  column-gap: 3em;
+  place-items: center;
+  :nth-child(1) {
+    grid-column: 1/-1;
+  }
+  :nth-child(2) {
+    grid-column: 1/-1;
+    margin-bottom: 1em;
+  }
+  h1 {
+    font-size: $font_size_4;
+    color: $black-color;
+    font-family: $font_family_1;
+    font-weight: 300;
+    text-align: center;
+  }
+  p {
+    font-size: $font_size_3;
+    color: $black-color;
+    font-family: $font_family_1;
+    font-weight: 300;
+    text-align: center;
+    // padding-top: 2em;
+  }
+}
+
 .comics {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -179,7 +256,7 @@ body {
   h1:nth-child(1) {
     grid-column: 1/4;
     margin: 0.5em;
-    font-size: $font_size_4;
+    font-size: $font_size_3;
     color: $black-color;
     font-family: $font_family_1;
     font-weight: 300;
@@ -218,6 +295,7 @@ body {
   margin-top: 0;
   // background: url(../../assets/bg3.jpg);
   background-size: 200%;
+  font-family: $font_family_3;
   background-position: center;
   h1:nth-child(1) {
     grid-column: 1 / -1;
@@ -225,7 +303,7 @@ body {
     margin-bottom: 0;
     font-size: $font_size_4;
     color: $black-color;
-    font-family: $font_family_1;
+    font-family: $font_family_3;
     font-weight: 300;
     text-align: center;
   }
@@ -310,7 +388,7 @@ body {
 
 @media (max-width: 480px) {
   .headerr {
-    width: 100%;
+    width: 90%;
     display: grid;
     grid-template-columns: auto;
     place-items: center;
@@ -358,7 +436,7 @@ body {
       grid-row: 2/3;
     }
     p {
-      font-size: $font_size_2;
+      font-size: $font_size_1;
       color: $black-color;
       font-family: $font_family_3;
       font-weight: 300;
@@ -369,13 +447,14 @@ body {
       width: 90%;
     }
   }
+
   .workshops {
     display: grid;
     grid-template-columns: auto;
     grid-row: auto;
     place-items: center;
     gap: 1em;
-    padding: 2em;
+    padding: 1em;
     padding-top: 2em;
     // background: url(../../assets/pg4bg.png);
     background-size: 200%;
@@ -385,7 +464,7 @@ body {
       width: 100%;
     }
     p {
-      font-size: $font_size_3;
+      font-size: $font_size_2;
       color: $black-color;
       font-family: $font_family_1;
       font-weight: 300;
@@ -404,12 +483,53 @@ body {
     :nth-child(2) {
       grid-column: 1/-1;
     }
+    :nth-child(6) {
+      grid-row: 5/6;
+    }
   }
   .points {
     li {
       list-style: none;
       font-family: $font_family_1;
       font-size: $font_size_1;
+    }
+  }
+  .toonland {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0em;
+    place-items: center;
+    img {
+      width: 80%;
+      // border: 1px solid #000;
+    }
+  }
+  .sample {
+    display: grid;
+    grid-template-columns: auto;
+    margin: auto 2em;
+    place-items: center;
+    :nth-child(1) {
+      grid-column: 1/-1;
+    }
+    :nth-child(2) {
+      grid-column: 1/-1;
+      margin-bottom: 1em;
+    }
+    h1 {
+      font-size: $font_size_4;
+      color: $black-color;
+      font-family: $font_family_1;
+      font-weight: 300;
+      text-align: center;
+    }
+    p {
+      font-size: $font_size_3;
+      color: $black-color;
+      font-family: $font_family_1;
+      font-weight: 300;
+      text-align: center;
+      padding-top: 2em;
     }
   }
   .comics {
@@ -708,6 +828,44 @@ body {
       list-style: none;
       font-family: $font_family_1;
       font-size: $font_size_1;
+    }
+  }
+  .toonland {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0em;
+    place-items: center;
+    img {
+      width: 80%;
+      // border: 1px solid #000;
+    }
+  }
+  .sample {
+    display: grid;
+    grid-template-columns: auto;
+    margin: auto 2em;
+    place-items: center;
+    :nth-child(1) {
+      grid-column: 1/-1;
+    }
+    :nth-child(2) {
+      grid-column: 1/-1;
+      margin-bottom: 1em;
+    }
+    h1 {
+      font-size: $font_size_4;
+      color: $black-color;
+      font-family: $font_family_1;
+      font-weight: 300;
+      text-align: center;
+    }
+    p {
+      font-size: $font_size_3;
+      color: $black-color;
+      font-family: $font_family_1;
+      font-weight: 300;
+      text-align: center;
+      padding-top: 2em;
     }
   }
   .comics {
