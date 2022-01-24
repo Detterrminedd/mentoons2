@@ -26,6 +26,15 @@ body {
   background: url(../../assets/backgoung.png);
 }
 
+// modal
+
+body {
+  background-color: #eee;
+}
+.sub-button {
+  height: 45px;
+}
+
 .headerr {
   width: 100%;
   display: grid;
@@ -38,6 +47,7 @@ body {
     width: 10em;
   }
 }
+
 .social {
   width: 60%;
   ul {
@@ -122,7 +132,11 @@ body {
   place-items: center;
   img {
     width: 80%;
-    // border: 1px solid #000;
+  }
+  img:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in;
+    cursor: pointer;
   }
   h1 {
     grid-column: 1/-1;
@@ -140,9 +154,6 @@ body {
     font-weight: 300;
     text-align: center;
   }
-  // img {
-  //   width: 10em;
-  // }
 }
 .containerr {
   position: relative;
@@ -183,7 +194,7 @@ body {
     text-align: center;
   }
   p {
-    font-size: $font_size_3;
+    font-size: $font_size_2;
     color: $black-color;
     font-family: $font_family_1;
     font-weight: 300;
@@ -199,6 +210,7 @@ body {
   place-items: center;
   margin-bottom: 2em;
   // background: url(../../assets/bg2.jpeg);
+  text-align: center;
   background-size: cover;
   background-position: bottom;
   h1:nth-child(1) {
@@ -210,8 +222,14 @@ body {
     font-weight: 300;
     text-align: center;
   }
+  p:nth-child(2) {
+    grid-column: 1/4;
+    font-size: $font_size_3;
+    color: $black-color;
+    font-family: $font_family_1;
+  }
 }
-.card {
+.card2 {
   width: 300px;
   height: 400px;
   background-color: #fff;
@@ -258,8 +276,7 @@ body {
   display: grid;
   grid-template-columns: auto auto auto;
   // background: url(../../assets/bg2.jpg);
-  background-size: cover;
-  background-position: bottom;
+  place-items: center;
   h1:nth-child(1) {
     grid-column: 1/4;
     margin: 0.5em;
@@ -269,6 +286,12 @@ body {
     font-weight: 300;
     text-align: center;
   }
+  p:nth-child(2) {
+    grid-column: 1/-1;
+    font-size: $font_size_3;
+    font-family: $font_family_1;
+    text-align: center;
+  }
 }
 .card1 {
   width: 300px;
@@ -276,15 +299,19 @@ body {
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
-  margin: 1em auto;
-  display: flex;
-  flex-direction: column;
-  p {
-    display: grid;
-    place-items: center;
-    height: 100px;
-    font-size: $font_size_2;
-    font-family: $font_family_1;
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 300px auto auto;
+  place-items: center;
+  margin-bottom: 2em;
+  span {
+    padding: 0;
+    font-family: $font_family_3;
+    font-size: 20px;
+  }
+  a {
+    width: fit-content;
+    margin-top: -1em;
   }
   img {
     width: 300px;
@@ -353,9 +380,6 @@ body {
   -webkit-transition: all 0.4s ease-in-out 0s;
   -moz-transition: all 0.4s ease-in-out 0s;
   transition: all 0.4s ease-in-out 0s;
-}
-
-.content-overlay {
 }
 
 .content:hover .content-overlay {
@@ -530,7 +554,7 @@ button {
 
 /*START SOCIAL PROFILE CSS*/
 .social_profile {
-  margin-top: 40px;
+  margin: 40px;
 }
 .social_profile ul {
   list-style: outside none none;
@@ -539,21 +563,26 @@ button {
 }
 .social_profile ul li {
   float: left;
+  margin-right: 1em;
+  margin-bottom: 1em;
 }
 .social_profile ul li a {
   text-align: center;
   border: 0px;
   text-transform: uppercase;
   transition: all 0.3s ease 0s;
-  margin: 0px 5px;
+  margin: 0px;
   font-size: 18px;
-  color: #fff;
+  color: #000;
   border-radius: 30px;
   width: 50px;
   height: 50px;
   line-height: 50px;
   display: block;
   /* border: 1px solid rgba(255,255,255,0.2); */
+  :hover {
+    color: #fff;
+  }
 }
 @media only screen and (max-width: 768px) {
   .social_profile ul li a {
@@ -565,8 +594,57 @@ button {
     margin: 0%;
   }
 }
-@media (max-width: 480px) {
 
+.flip-box {
+  background-color: transparent;
+  width: 3em;
+  height: 3em;
+  perspective: 1000px;
+  :hover {
+    color: white;
+  }
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 50%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+  color: white;
+}
+
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  :hover {
+    color: white;
+  }
+}
+
+.flip-box-front {
+  background-color: #fff;
+  color: black;
+}
+
+.flip-box-back {
+  background-color: #0d6efd;
+  color: white;
+  transform: rotateY(180deg);
+}
+@media (min-width: 300px) and (max-width: 480px) {
   .headerr {
     width: 90%;
     display: grid;
@@ -730,8 +808,14 @@ button {
       font-weight: 300;
       text-align: center;
     }
+    p:nth-child(2) {
+      grid-column: 1/-1;
+      font-size: $font_size_3;
+      color: $black-color;
+      font-family: $font_family_1;
+    }
   }
-  .card {
+  .card2 {
     width: 300px;
     height: 400px;
     background-color: #fff;
@@ -770,9 +854,6 @@ button {
   .merchandise {
     display: grid;
     grid-template-columns: auto;
-    // background: url(../../assets/bg2.jpg);
-    background-size: cover;
-    background-position: bottom;
     h1:nth-child(1) {
       grid-column: 1/-1;
       margin: 0.5em;
@@ -781,27 +862,6 @@ button {
       font-family: $font_family_1;
       font-weight: 300;
       text-align: center;
-    }
-  }
-  .card1 {
-    width: 300px;
-    height: 400px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 10px;
-    margin: 1em auto;
-    display: flex;
-    flex-direction: column;
-    p {
-      display: grid;
-      place-items: center;
-      height: 100px;
-      font-size: $font_size_2;
-      font-family: $font_family_1;
-    }
-    img {
-      width: 300px;
-      border-radius: 10px 10px 0px 0px;
     }
   }
   .team {
@@ -969,7 +1029,7 @@ button {
   }
   .workshops {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
     grid-row: auto;
     place-items: center;
     gap: 1em;
@@ -1002,6 +1062,9 @@ button {
     :nth-child(2) {
       grid-column: 1/-1;
     }
+    :nth-child(6) {
+      grid-row: 5/6;
+    }
   }
   .points {
     li {
@@ -1016,7 +1079,7 @@ button {
     gap: 0em;
     place-items: center;
     img {
-      width: 80%;
+      width: 100%;
       // border: 1px solid #000;
     }
   }
@@ -1066,8 +1129,14 @@ button {
       font-weight: 300;
       text-align: center;
     }
+    p:nth-child(2) {
+      grid-column: 1/3;
+      font-size: $font_size_3;
+      color: $black-color;
+      font-family: $font_family_1;
+    }
   }
-  .card {
+  .card2 {
     width: 300px;
     height: 400px;
     background-color: #fff;
@@ -1106,9 +1175,6 @@ button {
   .merchandise {
     display: grid;
     grid-template-columns: auto auto;
-    // background: url(../../assets/bg2.jpg);
-    background-size: cover;
-    background-position: bottom;
     h1:nth-child(1) {
       grid-column: 1/-1;
       margin: 0.5em;
@@ -1119,27 +1185,7 @@ button {
       text-align: center;
     }
   }
-  .card1 {
-    width: 300px;
-    height: 400px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 10px;
-    margin: 1em auto;
-    display: flex;
-    flex-direction: column;
-    p {
-      display: grid;
-      place-items: center;
-      height: 100px;
-      font-size: $font_size_2;
-      font-family: $font_family_1;
-    }
-    img {
-      width: 300px;
-      border-radius: 10px 10px 0px 0px;
-    }
-  }
+
   .team {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
